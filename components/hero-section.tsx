@@ -13,8 +13,8 @@ import {
 } from "framer-motion"
 import Link from "next/link"
 
-import { ThemeToggle } from "@/components/theme-toggle"
 import { profile } from "@/lib/resume-data"
+import { scrollToHash } from "@/lib/scroll-to-hash"
 
 const container: Variants = {
   hidden: {},
@@ -42,37 +42,6 @@ const lineReveal: Variants = {
     y: "0%",
     transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
   },
-}
-
-function BerlinClock() {
-  const [time, setTime] = React.useState<string | null>(null)
-
-  React.useEffect(() => {
-    const update = () =>
-      setTime(
-        new Intl.DateTimeFormat("en-GB", {
-          hour: "2-digit",
-          minute: "2-digit",
-          timeZone: "Europe/Berlin",
-        }).format(new Date())
-      )
-
-    update()
-    const id = setInterval(update, 30_000)
-    return () => clearInterval(id)
-  }, [])
-
-  return (
-    <span className="flex items-center gap-2 font-mono text-xs tracking-wider text-muted-foreground uppercase">
-      <motion.span
-        aria-hidden
-        className="size-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"
-        animate={{ opacity: [1, 0.35, 1] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      />
-      {time ? `Berlin — ${time}` : "Berlin"}
-    </span>
-  )
 }
 
 export function HeroSection() {
@@ -111,19 +80,6 @@ export function HeroSection() {
           animate="show"
           className="flex flex-1 flex-col"
         >
-          <motion.div
-            variants={fadeUp}
-            className="flex items-center justify-between gap-4"
-          >
-            <span className="font-mono text-xs tracking-wider text-muted-foreground uppercase">
-              Faisal Prady
-            </span>
-            <div className="flex items-center gap-3">
-              <BerlinClock />
-              <ThemeToggle />
-            </div>
-          </motion.div>
-
           <motion.div
             style={{ x: translateX, y: translateY }}
             className="flex flex-1 flex-col justify-center gap-6 py-12"
@@ -187,6 +143,10 @@ export function HeroSection() {
           <motion.div variants={fadeUp}>
             <Link
               href="#projects"
+              onClick={(event) => {
+                event.preventDefault()
+                scrollToHash("projects")
+              }}
               className="group inline-flex items-center gap-2 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Selected work
