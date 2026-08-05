@@ -44,11 +44,11 @@ export function ProjectCard({
         <div
           className={cn(
             "flex items-center justify-center bg-muted",
-            featured ? "min-h-56 flex-1" : "aspect-4/3"
+            featured ? "min-h-40 flex-1" : "h-40"
           )}
         >
           <Icon
-            className="size-10 text-muted-foreground/70 transition-colors group-hover:text-foreground"
+            className="size-8 text-muted-foreground/70 transition-colors group-hover:text-foreground"
             strokeWidth={1.25}
           />
         </div>

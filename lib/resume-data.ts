@@ -5,7 +5,7 @@ export const profile = {
   email: "faisalprady@gmail.com",
   website: "faisalprady.vercel.app",
   summary:
-    "Fullstack Engineer with 5+ years building production web applications across startups and agencies in Berlin. At Arbolitics, a German agrotech startup, I built interactive dashboards for irrigation planning and yield prediction, wiring up ML-based scoring APIs and shipping with full test coverage via Playwright and Jest. Before that, I spent close to four years at gravity&storm delivering full-stack products — from passenger information systems for German S-Bahn trains to booking tools and configurators — across React, Vue.js, Next.js and Nest.js. I'm currently deepening my backend fundamentals through an intensive Java & Spring Boot bootcamp at neuefische.",
+    "Fullstack Engineer with 5+ years building production web applications across startups and agencies in Berlin. At Arbolitics, a German agrotech startup, I built interactive dashboards for irrigation planning and yield prediction. Before that, I spent close to four years at gravity&storm delivering full-stack products — from passenger information systems for German S-Bahn trains to booking tools and configurators — across React, Vue.js, Next.js and Nest.js. I'm currently deepening my backend fundamentals through an intensive Java & Spring Boot bootcamp at neuefische.",
 } as const
 
 export const education = [
@@ -23,28 +23,98 @@ export const education = [
   },
 ] as const
 
-export const technicalSkills: { name: string; featured?: boolean }[] = [
-  { name: "Next.js", featured: true },
-  { name: "React", featured: true },
-  { name: "TypeScript", featured: true },
-  { name: "Java", featured: true },
-  { name: "Spring Boot", featured: true },
-  { name: "JavaScript" },
-  { name: "Node.js" },
-  { name: "Vue.js" },
-  { name: "Nest.js" },
-  { name: "Zustand" },
-  { name: "MongoDB" },
-  { name: "Docker" },
-  { name: "Playwright" },
-  { name: "Jest" },
-  { name: "Git" },
+export const technicalSkillCategories: {
+  category: string
+  skills: { name: string; featured?: boolean }[]
+}[] = [
+  {
+    category: "Frontend Architecture",
+    skills: [
+      { name: "TypeScript", featured: true },
+      { name: "React", featured: true },
+      { name: "Next.js", featured: true },
+      { name: "Vue.js" },
+      { name: "JavaScript" },
+      { name: "HTML5" },
+      { name: "CSS3" },
+      { name: "Tailwind CSS" },
+      { name: "shadcn/ui" },
+      { name: "Material UI" },
+      { name: "TanStack Query" },
+      { name: "State Management (Redux, Zustand, Pinia)" },
+    ],
+  },
+  {
+    category: "Backend Engineering",
+    skills: [
+      { name: "Java", featured: true },
+      {
+        name: "Spring Boot (Spring Security, Spring Data JPA, Spring AI)",
+        featured: true,
+      },
+      { name: "Node.js" },
+      { name: "NestJS" },
+      { name: "Python" },
+      { name: "REST APIs" },
+      { name: "GraphQL" },
+      { name: "OAuth 2.0" },
+      { name: "JWT Authentication" },
+    ],
+  },
+  {
+    category: "AI Systems & Search",
+    skills: [
+      { name: "Retrieval-Augmented Generation (RAG)", featured: true },
+      { name: "LLM Integration" },
+      { name: "AI-powered Applications" },
+      { name: "Prompt Engineering" },
+      { name: "pgvector" },
+    ],
+  },
+  {
+    category: "Data & Infrastructure",
+    skills: [
+      { name: "PostgreSQL (pgvector)", featured: true },
+      { name: "MySQL" },
+      { name: "MongoDB" },
+      { name: "Hibernate" },
+      { name: "Flyway" },
+      { name: "Docker" },
+      { name: "CI/CD (GitHub Actions)" },
+      { name: "AWS S3" },
+      { name: "Vercel" },
+      { name: "DigitalOcean" },
+      { name: "Supabase" },
+    ],
+  },
+  {
+    category: "Testing & Reliability",
+    skills: [
+      { name: "Vitest" },
+      { name: "Jest" },
+      { name: "JUnit" },
+      { name: "Zod" },
+      { name: "Automated Testing" },
+      { name: "Test-Driven Development (TDD)" },
+    ],
+  },
+  {
+    category: "Engineering Practices",
+    skills: [
+      { name: "Software Architecture" },
+      { name: "Clean Code" },
+      { name: "Code Reviews" },
+      { name: "Agile/Scrum" },
+      { name: "Accessibility (WCAG 2.1/2.2 AA)" },
+      { name: "Responsive Design" },
+    ],
+  },
 ]
 
 export const languageSkills = [
-  { name: "English", level: "Professional working proficiency" },
-  { name: "German", level: "Limited working proficiency" },
-  { name: "Indonesian", level: "Native speaker" },
+  { name: "German", level: "Advanced" },
+  { name: "English", level: "Proficient" },
+  { name: "Indonesian", level: "Native" },
 ] as const
 
 export const experience = [
@@ -82,22 +152,10 @@ export const experience = [
   {
     period: "2019 – 2020",
     range: "Mar 2019 – Mar 2020",
-    title: "Frontend Web Developer",
+    title: "IT Support",
     company: "HeavenHR",
     location: "Berlin, Germany · Work Study",
-    bullets: [
-      "Worked on the frontend with React.js and AJAX-driven data fetching.",
-    ],
-  },
-  {
-    period: "2018 – 2019",
-    range: "Oct 2018 – Feb 2019",
-    title: "Augmented Reality Developer — Bachelor Thesis",
-    company: "Vonderlabs",
-    location: "Berlin Area · Work Study",
-    bullets: [
-      "Researched and built an AR gamification project as part of the bachelor thesis.",
-    ],
+    bullets: [],
   },
   {
     period: "2018",
@@ -105,16 +163,6 @@ export const experience = [
     title: "Virtual Reality Development Intern",
     company: "Vonderlabs",
     location: "Berlin Area · Internship",
-    bullets: ["Prototyped virtual reality experiences and tooling."],
-  },
-  {
-    period: "2017",
-    range: "Apr 2017 – Aug 2017",
-    title: "Virtual Reality Developer — University Project",
-    company: "HTW Berlin, in collaboration with ImmobilienScout24",
-    location: "Berlin Metropolitan Area · Course Project",
-    bullets: [
-      "Built a virtual reality property tour as a university course project set by ImmobilienScout24, not a role held at the company.",
-    ],
+    bullets: [],
   },
 ] as const

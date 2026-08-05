@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { DownloadIcon } from "lucide-react"
+import { motion, MotionConfig, type Variants } from "framer-motion"
 
 import {
   Accordion,
@@ -9,15 +10,24 @@ import {
   AccordionPanel,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
   education,
   experience,
   languageSkills,
   profile,
-  technicalSkills,
+  technicalSkillCategories,
 } from "@/lib/resume-data"
+
+const container: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.06 } },
+}
+
+const row: Variants = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
+}
 
 export function ExperienceSection() {
   const allValues = experience.map((_, index) => index)
@@ -38,56 +48,6 @@ export function ExperienceSection() {
         <p className="mt-3 text-sm leading-relaxed text-foreground/90">
           {profile.summary}
         </p>
-      </div>
-
-      <div className="mt-10 grid grid-cols-1 gap-8 border-t border-border pt-6 sm:grid-cols-3">
-        <div>
-          <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-            Education
-          </h3>
-          <dl className="mt-3 flex flex-col gap-3 text-sm">
-            {education.map((item) => (
-              <div key={item.degree}>
-                <dt className="font-medium">{item.period}</dt>
-                <dd className="text-foreground/90">
-                  {item.degree}
-                  <br />
-                  <span className="text-muted-foreground">{item.school}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        <div>
-          <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-            Technical skills
-          </h3>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {technicalSkills.map((skill) => (
-              <Badge
-                key={skill.name}
-                variant={skill.featured ? "featured" : "outline"}
-              >
-                {skill.name}
-              </Badge>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-            Language skills
-          </h3>
-          <dl className="mt-3 flex flex-col gap-3 text-sm">
-            {languageSkills.map((lang) => (
-              <div key={lang.name}>
-                <dt className="font-medium">{lang.name}</dt>
-                <dd className="text-muted-foreground">{lang.level}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
       </div>
 
       <div className="mt-10 flex items-center justify-between border-t border-border pt-6">
@@ -158,6 +118,82 @@ export function ExperienceSection() {
           </AccordionItem>
         ))}
       </Accordion>
+
+      <div className="mt-14 border-t border-border pt-6">
+        <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+          Capabilities
+        </h3>
+        <MotionConfig reducedMotion="user">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="mt-4"
+          >
+            {technicalSkillCategories.map((group) => (
+              <motion.div
+                key={group.category}
+                variants={row}
+                className="group grid grid-cols-1 gap-1.5 border-b border-border py-5 sm:grid-cols-[200px_1fr] sm:gap-6"
+              >
+                <h4 className="relative pl-4 font-heading text-base font-medium tracking-tight sm:text-lg">
+                  <span className="absolute top-0.5 left-0 h-[calc(100%-0.25rem)] w-px origin-top scale-y-0 bg-foreground transition-transform duration-300 ease-out group-hover:scale-y-100" />
+                  {group.category}
+                </h4>
+                <p className="text-sm leading-relaxed text-foreground/80">
+                  {group.skills.map((skill, index) => (
+                    <span key={skill.name}>
+                      <span
+                        className={
+                          skill.featured ? "font-medium text-foreground" : ""
+                        }
+                      >
+                        {skill.name}
+                      </span>
+                      {index < group.skills.length - 1 ? ", " : ""}
+                    </span>
+                  ))}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </MotionConfig>
+      </div>
+
+      <div className="mt-14 grid grid-cols-1 gap-8 border-t border-border pt-6 sm:grid-cols-2">
+        <div>
+          <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            Education
+          </h3>
+          <dl className="mt-3 flex flex-col gap-3 text-sm">
+            {education.map((item) => (
+              <div key={item.degree}>
+                <dt className="font-medium">{item.period}</dt>
+                <dd className="text-foreground/90">
+                  {item.degree}
+                  <br />
+                  <span className="text-muted-foreground">{item.school}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div>
+          <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            Language skills
+          </h3>
+          <dl className="mt-3 flex flex-col gap-3 text-sm">
+            {languageSkills.map((lang) => (
+              <div key={lang.name}>
+                <dt className="font-medium">{lang.name}</dt>
+                <dd className="text-muted-foreground">{lang.level}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
     </section>
   )
 }
