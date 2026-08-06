@@ -4,6 +4,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import { ProjectCard } from "@/components/project-card"
+import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -59,6 +60,9 @@ export default async function ProjectPage({
 
         {project.demoUrl ? (
           <div className="mt-10">
+            <p className="my-2 text-sm text-muted-foreground">
+              {`${project.title} — interactive demo`}
+            </p>
             <div className="relative aspect-4/3 w-full overflow-hidden rounded-2xl border border-border bg-muted">
               <iframe
                 src={project.demoUrl}
@@ -139,6 +143,7 @@ export default async function ProjectPage({
           </div>
         </div>
       </div>
+      <SiteFooter />
     </>
   )
 }

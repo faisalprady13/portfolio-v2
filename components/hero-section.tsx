@@ -107,6 +107,24 @@ export function HeroSection() {
                 <HoverSplitText>{profile.location}</HoverSplitText>
               </span>
               <span aria-hidden>·</span>
+              <a
+                href="https://github.com/faisalprady13"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-foreground"
+              >
+                <HoverSplitText>GitHub</HoverSplitText>
+              </a>
+              <span aria-hidden>·</span>
+              <a
+                href="https://www.linkedin.com/in/faisalprady/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-foreground"
+              >
+                <HoverSplitText>LinkedIn</HoverSplitText>
+              </a>
+              <span aria-hidden>·</span>
               <Link href="/resume" className="hover:text-foreground">
                 <HoverSplitText>Resume</HoverSplitText>
               </Link>

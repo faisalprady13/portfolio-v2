@@ -76,12 +76,15 @@ export default function ResumePage() {
             <h1 className="font-heading text-4xl font-semibold tracking-tight">
               {profile.name}
             </h1>
-            <p className="mt-1 text-sm text-neutral-600">{profile.title}</p>
+            <p className="mt-1 text-sm text-neutral-600">
+              {profile.title} - {profile.location}
+            </p>
           </div>
           <div className="shrink-0 text-right text-xs leading-relaxed text-neutral-500">
             <p>{profile.email}</p>
             <p>{profile.website}</p>
-            <p>{profile.location}</p>
+            <p>{profile.github}</p>
+            <p>{profile.linkedin}</p>
           </div>
         </header>
 
@@ -95,10 +98,7 @@ export default function ResumePage() {
           <SectionLabel>Experience</SectionLabel>
           <div className="mt-4 flex flex-col gap-6">
             {experience.map((job) => (
-              <div
-                key={job.company + job.range}
-                className="break-inside-avoid"
-              >
+              <div key={job.company + job.range} className="break-inside-avoid">
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="text-sm text-neutral-900">
                     <span className="font-semibold">{job.title}</span>
@@ -170,9 +170,7 @@ export default function ResumePage() {
             <dl className="mt-3 flex flex-col gap-2.5 text-xs">
               {languageSkills.map((lang) => (
                 <div key={lang.name}>
-                  <dt className="font-medium text-neutral-900">
-                    {lang.name}
-                  </dt>
+                  <dt className="font-medium text-neutral-900">{lang.name}</dt>
                   <dd className="text-neutral-500">{lang.level}</dd>
                 </div>
               ))}
