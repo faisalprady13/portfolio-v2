@@ -22,7 +22,15 @@ export async function generateMetadata({
   const { slug } = await params
   const project = projects.find((p) => p.slug === slug)
 
-  return project ? { title: `${project.title} — Projects` } : {}
+  if (!project) return {}
+
+  const image = project.cardImage ?? project.image
+
+  return {
+    title: project.title,
+    description: project.summary,
+    openGraph: image ? { images: [{ url: image }] } : undefined,
+  }
 }
 
 export default async function ProjectPage({

@@ -10,7 +10,8 @@ import {
 } from "@/lib/resume-data"
 
 export const metadata = {
-  title: `${profile.name} — Resume`,
+  title: "Resume",
+  description: `Resume of ${profile.name}, ${profile.title} based in ${profile.location}. View experience, skills, and education, or download as PDF.`,
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {

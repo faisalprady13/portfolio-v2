@@ -3,7 +3,9 @@ import { SiteHeader } from "@/components/site-header"
 import { profile } from "@/lib/resume-data"
 
 export const metadata = {
-  title: "Privacy Policy — Faisal Prady",
+  title: "Privacy Policy",
+  description:
+    "Privacy policy for this personal portfolio site — what data is collected (none beyond standard hosting logs) and how to get in touch.",
 }
 
 export default function PrivacyPolicyPage() {
