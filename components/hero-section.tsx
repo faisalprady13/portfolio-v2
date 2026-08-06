@@ -5,6 +5,7 @@ import { ArrowDown } from "lucide-react"
 import {
   motion,
   MotionConfig,
+  useInView,
   useMotionValue,
   useReducedMotion,
   useSpring,
@@ -15,16 +16,8 @@ import Link from "next/link"
 
 import { profile } from "@/lib/resume-data"
 import { scrollToHash } from "@/lib/scroll-to-hash"
-
-const container: Variants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
-    },
-  },
-}
+import { TypewriterText } from "@/components/typewriter-text"
+import { HoverSplitText } from "@/components/hover-split-text"
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 16, filter: "blur(4px)" },
@@ -36,16 +29,11 @@ const fadeUp: Variants = {
   },
 }
 
-const lineReveal: Variants = {
-  hidden: { y: "100%" },
-  show: {
-    y: "0%",
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-  },
-}
-
 export function HeroSection() {
   const shouldReduceMotion = useReducedMotion()
+
+  const sectionRef = React.useRef<HTMLElement>(null)
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 })
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -69,56 +57,39 @@ export function HeroSection() {
   return (
     <MotionConfig reducedMotion="user">
       <section
+        ref={sectionRef}
         id="home"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         className="mx-auto flex min-h-[85svh] max-w-5xl flex-col px-6 py-10 sm:py-14"
       >
         <motion.div
-          variants={container}
           initial="hidden"
-          animate="show"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
           className="flex flex-1 flex-col"
         >
           <motion.div
             style={{ x: translateX, y: translateY }}
             className="flex flex-1 flex-col justify-center gap-6 py-12"
           >
-            <h1 className="font-heading text-5xl leading-[1.05] font-semibold tracking-tight text-foreground sm:text-6xl md:text-7xl">
-              <span className="block overflow-hidden">
-                <motion.span variants={lineReveal} className="block">
-                  Fullstack Engineer
-                </motion.span>
-              </span>
-              <span className="block overflow-hidden">
-                <motion.span variants={lineReveal} className="block">
-                  who builds interfaces that feel{" "}
-                  <span className="relative inline-block text-muted-foreground">
-                    considered
-                    <motion.span
-                      aria-hidden
-                      className="absolute inset-x-0 -bottom-1 h-[3px] origin-left rounded-full bg-foreground/25"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{
-                        duration: 0.6,
-                        delay: 1.05,
-                        ease: [0.16, 1, 0.3, 1],
-                      }}
-                    />
-                  </span>
-                  .
-                </motion.span>
-              </span>
+            <h1 className="font-heading text-5xl leading-[1.17] font-semibold tracking-tight text-foreground sm:text-6xl md:text-7xl">
+              <TypewriterText
+                text="Turn Coffee And Ideas Into Working Products."
+                start={isInView}
+                highlight="Working"
+              />
             </h1>
 
             <motion.p
               variants={fadeUp}
               className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
-              I design and build full-stack web products end-to-end —
-              turning complex requirements into interfaces that are fast,
-              reliable, and genuinely pleasant to use.
+              <HoverSplitText>
+                I design and build full-stack web products end-to-end — turning
+                complex requirements into interfaces that are fast, reliable,
+                and genuinely pleasant to use.
+              </HoverSplitText>
             </motion.p>
 
             <motion.div
@@ -129,13 +100,15 @@ export function HeroSection() {
                 href={`mailto:${profile.email}`}
                 className="hover:text-foreground"
               >
-                {profile.email}
+                <HoverSplitText>{profile.email}</HoverSplitText>
               </a>
               <span aria-hidden>·</span>
-              <span>{profile.location}</span>
+              <span>
+                <HoverSplitText>{profile.location}</HoverSplitText>
+              </span>
               <span aria-hidden>·</span>
               <Link href="/resume" className="hover:text-foreground">
-                Resume
+                <HoverSplitText>Resume</HoverSplitText>
               </Link>
             </motion.div>
           </motion.div>
@@ -149,11 +122,15 @@ export function HeroSection() {
               }}
               className="group inline-flex items-center gap-2 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
-              Selected work
+              <HoverSplitText>Selected work</HoverSplitText>
               <motion.span
                 className="inline-flex"
                 animate={{ y: [0, 4, 0] }}
-                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 1.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 <ArrowDown className="size-3.5" />
               </motion.span>

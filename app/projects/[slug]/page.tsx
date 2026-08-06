@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
@@ -55,6 +56,31 @@ export default async function ProjectPage({
           {project.title}
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">{project.context}</p>
+
+        {project.demoUrl ? (
+          <div className="mt-10">
+            <div className="relative aspect-4/3 w-full overflow-hidden rounded-2xl border border-border bg-muted">
+              <iframe
+                src={project.demoUrl}
+                title={`${project.title} — interactive demo`}
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"
+                className="size-full"
+              />
+            </div>
+          </div>
+        ) : project.image ? (
+          <div className="relative mt-10 aspect-4/3 w-full overflow-hidden rounded-2xl bg-muted">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              sizes="100vw"
+              priority
+              className="object-cover object-top"
+            />
+          </div>
+        ) : null}
 
         <div className="mt-10 grid grid-cols-1 gap-8 border-t border-border pt-6 sm:grid-cols-3">
           <div>

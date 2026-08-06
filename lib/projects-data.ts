@@ -7,6 +7,9 @@ export type Project = {
   description: string[]
   stack: string[]
   url?: string
+  image?: string
+  cardImage?: string
+  demoUrl?: string
   icon:
     | "Leaf"
     | "TrendingUp"
@@ -18,29 +21,6 @@ export type Project = {
 }
 
 export const projects: Project[] = [
-  {
-    slug: "arbolitics-website",
-    title: "Arbolitics Website",
-    role: "Frontend Developer",
-    context: "Professional project during work at Arbolitics GmbH",
-    summary:
-      "Designed and developed the company's main website with multilingual support (English and Spanish).",
-    description: [
-      "Designed and developed the company's main website with multilingual support for English and Spanish, aimed at growers, banks, and investors evaluating Arbolitics' agtech offering.",
-      "Built the UI on top of shadcn/ui and Tailwind, and wired up translations with i18next so content editors could manage copy across both languages.",
-    ],
-    stack: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Shadcn/ui",
-      "Tailwind",
-      "I18Nexus",
-      "react-i18next",
-    ],
-    url: "https://www.arbolitics.com/",
-    icon: "Leaf",
-  },
   {
     slug: "finance-arbolitics",
     title: "Finance Arbolitics",
@@ -66,23 +46,11 @@ export const projects: Project[] = [
       "I18Nexus",
       "react-i18next",
     ],
-    url: "https://finance.arbolitics.com/",
     icon: "TrendingUp",
+    image: "/projects/gcm_app_map.webp",
+    demoUrl: "/projects/finance-arbolitics-dashboard.html",
   },
-  {
-    slug: "portfolio-website",
-    title: "Portfolio Website",
-    role: "Frontend Developer",
-    context: "Personal project",
-    summary:
-      "Server-side rendered personal portfolio built with Next.js and shadcn/ui to showcase skills and experience.",
-    description: [
-      "A server-side rendered personal portfolio built with the latest version of Next.js and shadcn/ui, used to showcase my skills, experience, and projects.",
-      "Focused on subtle motion and a fast, minimal aesthetic without compromising on performance.",
-    ],
-    stack: ["Next.js", "React", "TypeScript", "Shadcn/ui", "Tailwind"],
-    icon: "LayoutTemplate",
-  },
+
   {
     slug: "train-information-system",
     title: "Train Information System",
@@ -104,52 +72,7 @@ export const projects: Project[] = [
       "TypeScript",
     ],
     icon: "TrainFront",
-  },
-  {
-    slug: "tour-guides-dispatcher",
-    title: "Tour Guides Dispatcher App",
-    role: "Frontend Developer",
-    context: "Professional project during work at gravity&storm",
-    summary:
-      "A dispatcher web application for coordinating city tour guides, with authentication and a roles/rights concept.",
-    description: [
-      "A dispatcher web application for coordinating city tour guides, including authentication and a roles/rights concept for dispatchers, guides, and admins.",
-      "Business logic ran on Vercel serverless functions, with Sequelize on top of a relational database, and SendGrid for transactional email.",
-    ],
-    stack: [
-      "Next.js",
-      "React",
-      "MobX",
-      "Material UI",
-      "Sequelize",
-      "Node.js",
-      "Auth0",
-      "SendGrid",
-      "TypeScript",
-    ],
-    icon: "Users",
-  },
-  {
-    slug: "picture-frame-configurator",
-    title: "Picture Frame Configurator",
-    role: "Frontend Developer",
-    context: "Professional project during work at gravity&storm",
-    summary:
-      "A React-based configurator for custom picture frames, with designs persisted to AWS S3.",
-    description: [
-      "A React-based configurator that lets customers design custom picture frames and preview them before ordering.",
-      "Implemented the integration with AWS S3 to persist customer designs, with MobX managing configurator state and a GraphQL API tying it together.",
-    ],
-    stack: [
-      "Next.js",
-      "React",
-      "Node.js",
-      "MobX",
-      "GraphQL",
-      "Docker",
-      "TypeScript",
-    ],
-    icon: "Frame",
+    // image: "/projects/db-systel.png",
   },
   {
     slug: "handsonmetrology",
@@ -175,5 +98,80 @@ export const projects: Project[] = [
     ],
     url: "https://www.handsonmetrology.com/",
     icon: "Ruler",
+    image: "/projects/handsonmetrology.jpeg",
+    cardImage: "/projects/handsonmetrology.png",
+    demoUrl: "https://www.handsonmetrology.com/",
+  },
+  {
+    slug: "arbolitics-website",
+    title: "Arbolitics Website",
+    role: "Frontend Developer",
+    context: "Professional project during work at Arbolitics GmbH",
+    summary:
+      "Designed and developed the company's main website with multilingual support (English and Spanish).",
+    description: [
+      "Designed and developed the company's main website with multilingual support for English and Spanish, aimed at growers, banks, and investors evaluating Arbolitics' agtech offering.",
+      "Built the UI on top of shadcn/ui and Tailwind, and wired up translations with i18next so content editors could manage copy across both languages.",
+    ],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Shadcn/ui",
+      "Tailwind",
+      "I18Nexus",
+      "react-i18next",
+    ],
+    url: "https://www.arbolitics.com/",
+    icon: "Leaf",
+    image: "/projects/arbolitics_website.png",
+  },
+  {
+    slug: "tour-guides-dispatcher",
+    title: "Tour Guides Dispatcher App",
+    role: "Frontend Developer",
+    context: "Professional project during work at gravity&storm",
+    summary:
+      "A dispatcher web application for coordinating city tour guides, with authentication and a roles/rights concept.",
+    description: [
+      "A dispatcher web application for coordinating city tour guides, including authentication and a roles/rights concept for dispatchers, guides, and admins.",
+      "Business logic ran on Vercel serverless functions, with Sequelize on top of a relational database, and SendGrid for transactional email.",
+    ],
+    stack: [
+      "Next.js",
+      "React",
+      "MobX",
+      "Material UI",
+      "Sequelize",
+      "Node.js",
+      "Auth0",
+      "SendGrid",
+      "TypeScript",
+    ],
+    icon: "Users",
+    // image: "/projects/vive-berlin.png",
+  },
+  {
+    slug: "picture-frame-configurator",
+    title: "Picture Frame Configurator",
+    role: "Frontend Developer",
+    context: "Professional project during work at gravity&storm",
+    summary:
+      "A React-based configurator for custom picture frames, with designs persisted to AWS S3.",
+    description: [
+      "A React-based configurator that lets customers design custom picture frames and preview them before ordering.",
+      "Implemented the integration with AWS S3 to persist customer designs, with MobX managing configurator state and a GraphQL API tying it together.",
+    ],
+    stack: [
+      "Next.js",
+      "React",
+      "Node.js",
+      "MobX",
+      "GraphQL",
+      "Docker",
+      "TypeScript",
+    ],
+    icon: "Frame",
+    // image: "/projects/frameworks-berlin.jpeg",
   },
 ]
