@@ -125,6 +125,40 @@ export function ExperienceSection() {
         ))}
       </Accordion>
 
+      <div className="mt-14 grid grid-cols-1 gap-8 border-t border-border pt-6 sm:grid-cols-2">
+        <div>
+          <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            Education
+          </h3>
+          <dl className="mt-3 flex flex-col gap-3 text-sm">
+            {education.map((item) => (
+              <div key={item.degree}>
+                <dt className="font-medium">{item.period}</dt>
+                <dd className="text-foreground/90">
+                  {item.degree}
+                  <br />
+                  <span className="text-muted-foreground">{item.school}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div>
+          <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            Language skills
+          </h3>
+          <dl className="mt-3 flex flex-col gap-3 text-sm">
+            {languageSkills.map((lang) => (
+              <div key={lang.name}>
+                <dt className="font-medium">{lang.name}</dt>
+                <dd className="text-muted-foreground">{lang.level}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+
       <div className="mt-14 border-t border-border pt-6">
         <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
           Capabilities
@@ -165,40 +199,6 @@ export function ExperienceSection() {
             ))}
           </motion.div>
         </MotionConfig>
-      </div>
-
-      <div className="mt-14 grid grid-cols-1 gap-8 border-t border-border pt-6 sm:grid-cols-2">
-        <div>
-          <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-            Education
-          </h3>
-          <dl className="mt-3 flex flex-col gap-3 text-sm">
-            {education.map((item) => (
-              <div key={item.degree}>
-                <dt className="font-medium">{item.period}</dt>
-                <dd className="text-foreground/90">
-                  {item.degree}
-                  <br />
-                  <span className="text-muted-foreground">{item.school}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        <div>
-          <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-            Language skills
-          </h3>
-          <dl className="mt-3 flex flex-col gap-3 text-sm">
-            {languageSkills.map((lang) => (
-              <div key={lang.name}>
-                <dt className="font-medium">{lang.name}</dt>
-                <dd className="text-muted-foreground">{lang.level}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
       </div>
     </section>
   )

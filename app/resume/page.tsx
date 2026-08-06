@@ -133,21 +133,7 @@ export default function ResumePage() {
           </div>
         </section>
 
-        <section className="mt-8 print:break-before-page">
-          <SectionLabel>Technical Skills</SectionLabel>
-          <div className="mt-4 grid grid-cols-3 gap-x-8 gap-y-5">
-            {technicalSkillCategories.map((group) => (
-              <div key={group.category} className="break-inside-avoid">
-                <h3 className="text-[10px] font-semibold tracking-wide text-neutral-500 uppercase">
-                  {group.category}
-                </h3>
-                <SkillLine skills={group.skills} />
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="mt-8 grid grid-cols-2 gap-10">
+        <div className="mt-8 grid grid-cols-2 gap-10 print:break-before-page">
           <div>
             <SectionLabel>Education</SectionLabel>
             <dl className="mt-3 flex flex-col gap-2.5 text-xs">
@@ -178,6 +164,20 @@ export default function ResumePage() {
             </dl>
           </div>
         </div>
+
+        <section className="mt-8">
+          <SectionLabel>Technical Skills</SectionLabel>
+          <div className="mt-4 grid grid-cols-3 gap-x-8 gap-y-5">
+            {technicalSkillCategories.map((group) => (
+              <div key={group.category} className="break-inside-avoid">
+                <h3 className="text-[10px] font-semibold tracking-wide text-neutral-500 uppercase">
+                  {group.category}
+                </h3>
+                <SkillLine skills={group.skills} />
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   )

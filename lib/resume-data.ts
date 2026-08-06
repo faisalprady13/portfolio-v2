@@ -15,7 +15,7 @@ export const education = [
     period: "2026",
     degree: "Java Development Bootcamp",
     school: "neuefische GmbH — School and Pool for Digital Talent",
-    detail: "Apr – Aug 2026 · Java, Spring Boot, React, MongoDB, Docker",
+    detail: "04.2026 – 08.2026 · Java, Spring Boot, React, MongoDB, Docker",
   },
   {
     period: "2019",
@@ -122,7 +122,7 @@ export const languageSkills = [
 export const experience = [
   {
     period: "2025",
-    range: "Mar 2025 – Nov 2025",
+    range: "03.2025 – 11.2025",
     title: "Frontend Engineer",
     company: "Arbolitics",
     location: "Berlin, Germany · Hybrid",
@@ -139,7 +139,7 @@ export const experience = [
   },
   {
     period: "2020 – 2024",
-    range: "Sep 2020 – Jun 2024",
+    range: "09.2020 – 06.2024",
     title: "Full Stack Engineer",
     company: "gravity&storm",
     location: "Berlin, Germany",
@@ -153,7 +153,7 @@ export const experience = [
   },
   {
     period: "2019 – 2020",
-    range: "Mar 2019 – Mar 2020",
+    range: "03.2019 – 03.2020",
     title: "IT Support",
     company: "HeavenHR",
     location: "Berlin, Germany · Work Study",
@@ -161,7 +161,7 @@ export const experience = [
   },
   {
     period: "2018",
-    range: "Mar 2018 – Aug 2018",
+    range: "03.2018 – 08.2018",
     title: "Virtual Reality Development Intern",
     company: "Vonderlabs",
     location: "Berlin Area · Internship",
