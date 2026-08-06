@@ -3,6 +3,7 @@
 import * as React from "react"
 import { DownloadIcon } from "lucide-react"
 import { motion, MotionConfig, type Variants } from "framer-motion"
+import Link from "next/link"
 
 import {
   Accordion,
@@ -26,7 +27,11 @@ const container: Variants = {
 
 const row: Variants = {
   hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+  },
 }
 
 export function ExperienceSection() {
@@ -37,9 +42,20 @@ export function ExperienceSection() {
 
   return (
     <section id="experience" className="mx-auto max-w-5xl px-6 py-24">
-      <h2 className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
-        Experience
-      </h2>
+      <div className="flex items-center justify-between gap-4">
+        <h2 className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
+          Experience
+        </h2>
+        <Button
+          size="sm"
+          nativeButton={false}
+          render={<Link href="/resume" />}
+          className="cursor-pointer bg-emerald-500 text-white hover:bg-emerald-600"
+        >
+          <DownloadIcon />
+          Save PDF
+        </Button>
+      </div>
 
       <div className="mt-10 border-t border-border pt-6">
         <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
@@ -54,23 +70,13 @@ export function ExperienceSection() {
         <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
           Resume
         </h3>
-        <div className="flex items-center gap-4">
-          <button
-            type="button"
-            onClick={() => setOpenItems(allExpanded ? [] : allValues)}
-            className="text-xs font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-          >
-            {allExpanded ? "Collapse all" : "Expand all"}
-          </button>
-          <Button
-            size="sm"
-            nativeButton={false}
-            render={<a href="/faisal-prady-resume.pdf" download />}
-          >
-            Download
-            <DownloadIcon />
-          </Button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setOpenItems(allExpanded ? [] : allValues)}
+          className="text-xs font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+        >
+          {allExpanded ? "Collapse all" : "Expand all"}
+        </button>
       </div>
 
       <Accordion

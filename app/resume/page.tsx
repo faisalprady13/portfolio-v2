@@ -1,3 +1,6 @@
+import { Suspense } from "react"
+
+import { ResumeActions } from "@/components/resume-actions"
 import {
   education,
   experience,
@@ -41,12 +44,33 @@ function SkillLine({
 
 export default function ResumePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="resume-root min-h-screen bg-white">
       <style>{`
         html, body { background: #fff !important; color-scheme: light !important; }
-        @page { size: A4; margin: 0; }
+        .resume-root {
+          --background: oklch(1 0 0);
+          --foreground: oklch(0.148 0.004 228.8);
+          --card: oklch(1 0 0);
+          --card-foreground: oklch(0.148 0.004 228.8);
+          --popover: oklch(1 0 0);
+          --popover-foreground: oklch(0.148 0.004 228.8);
+          --primary: oklch(0.218 0.008 223.9);
+          --primary-foreground: oklch(0.987 0.002 197.1);
+          --secondary: oklch(0.963 0.002 197.1);
+          --secondary-foreground: oklch(0.218 0.008 223.9);
+          --muted: oklch(0.963 0.002 197.1);
+          --muted-foreground: oklch(0.56 0.021 213.5);
+          --accent: oklch(0.963 0.002 197.1);
+          --accent-foreground: oklch(0.218 0.008 223.9);
+          --border: oklch(0.925 0.005 214.3);
+          --input: oklch(0.925 0.005 214.3);
+          --ring: oklch(0.723 0.014 214.4);
+        }
       `}</style>
-      <div className="mx-auto max-w-[210mm] px-12 py-14 text-neutral-900 print:px-10 print:py-10">
+      <Suspense fallback={null}>
+        <ResumeActions />
+      </Suspense>
+      <div className="mx-auto max-w-[210mm] px-12 py-14 text-neutral-900 print:px-0 print:py-0">
         <header className="flex items-end justify-between gap-6 border-b border-neutral-200 pb-5">
           <div>
             <h1 className="font-heading text-4xl font-semibold tracking-tight">
@@ -108,7 +132,7 @@ export default function ResumePage() {
           </div>
         </section>
 
-        <section className="mt-8">
+        <section className="mt-8 print:break-before-page">
           <SectionLabel>Technical Skills</SectionLabel>
           <div className="mt-4 grid grid-cols-3 gap-x-8 gap-y-5">
             {technicalSkillCategories.map((group) => (
