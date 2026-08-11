@@ -113,22 +113,41 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {project.url ? (
+          {project.url || project.githubUrl ? (
             <div>
               <h3 className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-                Live site
+                Links
               </h3>
-              <div className="mt-3">
-                <Button
-                  size="sm"
-                  nativeButton={false}
-                  render={
-                    <a href={project.url} target="_blank" rel="noreferrer" />
-                  }
-                >
-                  Visit website
-                  <ArrowUpRight />
-                </Button>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {project.url ? (
+                  <Button
+                    size="sm"
+                    nativeButton={false}
+                    render={
+                      <a href={project.url} target="_blank" rel="noreferrer" />
+                    }
+                  >
+                    Visit website
+                    <ArrowUpRight />
+                  </Button>
+                ) : null}
+                {project.githubUrl ? (
+                  <Button
+                    size="sm"
+                    variant={project.url ? "outline" : "default"}
+                    nativeButton={false}
+                    render={
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                      />
+                    }
+                  >
+                    View on GitHub
+                    <ArrowUpRight />
+                  </Button>
+                ) : null}
               </div>
             </div>
           ) : null}
@@ -139,6 +158,41 @@ export default async function ProjectPage({
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
+
+        {project.architectureDescription || project.architectureImages ? (
+          <div className="mt-16 border-t border-border pt-10">
+            <h2 className="font-heading text-2xl font-semibold tracking-tight">
+              Architecture
+            </h2>
+
+            {project.architectureDescription ? (
+              <div className="mt-6 flex flex-col gap-4 text-sm leading-relaxed text-foreground/90">
+                {project.architectureDescription.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            ) : null}
+
+            {project.architectureImages ? (
+              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {project.architectureImages.map((src) => (
+                  <div
+                    key={src}
+                    className="relative aspect-4/3 w-full overflow-hidden rounded-2xl bg-muted"
+                  >
+                    <Image
+                      src={src}
+                      alt={`${project.title} — architecture diagram`}
+                      fill
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
 
         <div className="mt-16 border-t border-border pt-10">
           <h2 className="font-heading text-2xl font-semibold tracking-tight">

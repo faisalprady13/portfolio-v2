@@ -1,4 +1,5 @@
 import {
+  ChefHat,
   Frame,
   LayoutTemplate,
   Leaf,
@@ -23,6 +24,7 @@ const icons: Record<Project["icon"], LucideIcon> = {
   Users,
   Frame,
   Ruler,
+  ChefHat,
 }
 
 // Deterministic per-project "randomness" — same project always gets the same

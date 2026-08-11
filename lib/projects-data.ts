@@ -7,9 +7,12 @@ export type Project = {
   description: string[]
   stack: string[]
   url?: string
+  githubUrl?: string
   image?: string
   cardImage?: string
   demoUrl?: string
+  architectureDescription?: string[]
+  architectureImages?: string[]
   icon:
     | "Leaf"
     | "TrendingUp"
@@ -18,9 +21,46 @@ export type Project = {
     | "Users"
     | "Frame"
     | "Ruler"
+    | "ChefHat"
 }
 
 export const projects: Project[] = [
+  {
+    slug: "food-rag",
+    title: "Food RAG",
+    role: "Fullstack Developer",
+    context: "Personal project",
+    summary:
+      "AI-powered recipe assistant that combines conversational search with retrieval-augmented generation over a vector database, letting users discover and chat about Indonesian recipes using their own OpenAI API key.",
+    description: [
+      "A full-stack recipe discovery app that combines conversational AI with semantic search. Users ask questions about Indonesian recipes in natural language, and the system retrieves relevant recipes from a vector database, generates grounded answers, and lets them save favorites — all powered by their own OpenAI API key.",
+      "Built the backend with Spring Boot 4 and Spring AI on Java 25, using PostgreSQL with the pgvector extension for semantic search and Flyway for schema migrations. The React 19 frontend uses TanStack Query for data fetching and Zustand for state, with authentication via email/password and OAuth2 (Google, GitHub).",
+      "Conversation memory tracks recipe IDs from search results so follow-ups like \"save number 2\" resolve correctly, and chat history persists with auto-generated titles, pinning, and deletion. Each user's OpenAI API key is encrypted at rest, so there's no shared billing dependency. The whole app ships as a single Docker image serving both frontend and backend, deployed via GitHub Actions to Supabase-hosted Postgres.",
+    ],
+    architectureDescription: [
+      "The retrieval-augmented generation pipeline embeds each recipe with OpenAI's embedding model and stores the vectors in PostgreSQL via pgvector. A user's question is embedded the same way, matched against the recipe vectors with a similarity search, and the top results are injected into the prompt so the model answers from real recipe data instead of guessing.",
+      "Because every user supplies their own OpenAI API key — encrypted at rest and used to build a per-user chat client — there's no shared LLM billing or rate limit to manage. The Spring Boot backend and the Vite-built React frontend are packaged into one multi-stage Docker image, so the whole app deploys as a single container.",
+    ],
+    stack: [
+      "Java",
+      "Spring Boot",
+      "Spring AI",
+      "PostgreSQL",
+      "pgvector",
+      "React",
+      "TypeScript",
+      "Vite",
+      "TanStack Query",
+      "Zustand",
+      "Tailwind",
+      "Docker",
+    ],
+    url: "https://indo-dish-latest.onrender.com/",
+    githubUrl: "https://github.com/faisalprady13/indonesian-food-rag",
+    icon: "ChefHat",
+    image: "/projects/indonesian-food-rag.png",
+    architectureImages: ["/projects/indonesian-food-rag-architecture.png"],
+  },
   {
     slug: "finance-arbolitics",
     title: "Finance Arbolitics",
