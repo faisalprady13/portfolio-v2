@@ -58,8 +58,12 @@ export const projects: Project[] = [
     url: "https://indo-dish-latest.onrender.com/",
     githubUrl: "https://github.com/faisalprady13/indonesian-food-rag",
     icon: "ChefHat",
-    image: "/projects/indonesian-food-rag.png",
-    architectureImages: ["/projects/indonesian-food-rag-architecture.png"],
+    image: "/projects/food-rag.png",
+    cardImage: "/projects/food-rag-logo.webp",
+    architectureImages: [
+      "/projects/food-rag-architecture.png",
+      "/projects/food-rag-app-architecture.png",
+    ],
   },
   {
     slug: "finance-arbolitics",

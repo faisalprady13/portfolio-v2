@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
+import { ArchitectureCarousel } from "@/components/architecture-carousel"
 import { ProjectCard } from "@/components/project-card"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
@@ -174,22 +175,10 @@ export default async function ProjectPage({
             ) : null}
 
             {project.architectureImages ? (
-              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {project.architectureImages.map((src) => (
-                  <div
-                    key={src}
-                    className="relative aspect-4/3 w-full overflow-hidden rounded-2xl bg-muted"
-                  >
-                    <Image
-                      src={src}
-                      alt={`${project.title} — architecture diagram`}
-                      fill
-                      sizes="(min-width: 640px) 50vw, 100vw"
-                      className="object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
+              <ArchitectureCarousel
+                images={project.architectureImages}
+                title={project.title}
+              />
             ) : null}
           </div>
         ) : null}
