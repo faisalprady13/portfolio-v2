@@ -11,12 +11,12 @@ export const profile = {
 } as const
 
 export const education = [
-  {
-    period: "2026",
-    degree: "Java Development Bootcamp",
-    school: "neuefische GmbH — School and Pool for Digital Talent",
-    detail: "04.2026 – 08.2026 · Java, Spring Boot, React, MongoDB, Docker",
-  },
+  // {
+  //   period: "2026",
+  //   degree: "Java Development Bootcamp",
+  //   school: "neuefische GmbH — School and Pool for Digital Talent",
+  //   detail: "04.2026 – 08.2026 · Java, Spring Boot, React, MongoDB, Docker",
+  // },
   {
     period: "2019",
     degree: "B.Sc. International Media and Computing",
@@ -120,6 +120,17 @@ export const languageSkills = [
 ] as const
 
 export const experience = [
+  {
+    period: "2026",
+    range: "04.2026 – 08.2026",
+    title: "Java Development — Professional Training",
+    company: "Neuefische",
+    location: "Berlin, Germany",
+    bullets: [
+      "Intensive full-time professional training in Java and full-stack development, covering Java, Spring Boot, REST APIs, databases, testing, React, TypeScript, Docker, DevOps, and AI-assisted development.",
+      "Capstone Project: Built a full-stack RAG recipe assistant with Java 25, Spring Boot 4, Spring AI, PostgreSQL/pgvector, Spring Security, React, and TypeScript, including JWT/OAuth2 authentication, AI tool calling, persistent conversations, and Docker/GitHub Actions CI/CD.",
+    ],
+  },
   {
     period: "2025",
     range: "03.2025 – 11.2025",

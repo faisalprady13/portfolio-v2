@@ -36,7 +36,7 @@ const row: Variants = {
 
 export function ExperienceSection() {
   const allValues = experience.map((_, index) => index)
-  const [openItems, setOpenItems] = React.useState<number[]>([0])
+  const [openItems, setOpenItems] = React.useState<number[]>([0, 1, 2])
 
   const allExpanded = openItems.length === experience.length
 
@@ -80,6 +80,7 @@ export function ExperienceSection() {
       </div>
 
       <Accordion
+        multiple
         value={openItems}
         onValueChange={(value) => setOpenItems(value as number[])}
         className="border-t border-border"

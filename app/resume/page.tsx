@@ -133,7 +133,7 @@ export default function ResumePage() {
           </div>
         </section>
 
-        <div className="mt-8 grid grid-cols-2 gap-10 print:break-before-page">
+        <div className="mt-8 grid grid-cols-2 gap-10">
           <div>
             <SectionLabel>Education</SectionLabel>
             <dl className="mt-3 flex flex-col gap-2.5 text-xs">
