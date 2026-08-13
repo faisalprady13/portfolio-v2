@@ -71,6 +71,9 @@ export const technicalSkillCategories: {
       { name: "AI-powered Applications" },
       { name: "Prompt Engineering" },
       { name: "pgvector" },
+      { name: "Claude Code" },
+      { name: "GitHub Copilot" },
+      { name: "OpenAI API" },
     ],
   },
   {
