@@ -7,7 +7,7 @@ export const profile = {
   github: "github.com/faisalprady13",
   linkedin: "linkedin.com/in/faisalprady",
   summary:
-    "Fullstack Engineer with 5+ years building production web applications across startups and agencies in Berlin. At Arbolitics, a German agrotech startup, I built interactive dashboards for irrigation planning and yield prediction. Before that, I spent close to four years at gravity&storm delivering full-stack products — from passenger information systems for German S-Bahn trains to booking tools and configurators — across React, Vue.js, Next.js and Nest.js. I recently completed an intensive Java & Spring Boot bootcamp at neuefische, deepening my backend fundamentals.",
+    "Full-stack engineer with 5+ years of experience building production web applications using React, TypeScript, Next.js, Java, Spring Boot, and Node.js. Experienced in data-driven applications, REST APIs, authentication, cloud services, and AI-powered systems using RAG, Spring AI, and vector databases. Focused on building scalable, maintainable, and user-friendly software.",
 } as const
 
 export const education = [
