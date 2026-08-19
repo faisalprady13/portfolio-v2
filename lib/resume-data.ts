@@ -11,12 +11,12 @@ export const profile = {
 } as const
 
 export const education = [
-  // {
-  //   period: "2026",
-  //   degree: "Java Development Bootcamp",
-  //   school: "neuefische GmbH — School and Pool for Digital Talent",
-  //   detail: "04.2026 – 08.2026 · Java, Spring Boot, React, MongoDB, Docker",
-  // },
+  {
+    period: "2026",
+    degree: "Java Development — Professional Training",
+    school: "neuefische GmbH — School and Pool for Digital Talent",
+    detail: "04.2026 – 08.2026 · Java, Spring Boot, React, MongoDB, Docker",
+  },
   {
     period: "2019",
     degree: "B.Sc. International Media and Computing",
@@ -123,17 +123,17 @@ export const languageSkills = [
 ] as const
 
 export const experience = [
-  {
-    period: "2026",
-    range: "04.2026 – 08.2026",
-    title: "Java Development — Professional Training",
-    company: "Neuefische",
-    location: "Berlin, Germany",
-    bullets: [
-      "Intensive full-time professional training in Java and full-stack development, covering Java, Spring Boot, REST APIs, databases, testing, React, TypeScript, Docker, DevOps, and AI-assisted development.",
-      "Capstone Project: Built a full-stack RAG recipe assistant with Java 25, Spring Boot 4, Spring AI, PostgreSQL/pgvector, Spring Security, React, and TypeScript, including JWT/OAuth2 authentication, AI tool calling, persistent conversations, and Docker/GitHub Actions CI/CD.",
-    ],
-  },
+  // {
+  //   period: "2026",
+  //   range: "04.2026 – 08.2026",
+  //   title: "Java Development — Professional Training",
+  //   company: "Neuefische",
+  //   location: "Berlin, Germany",
+  //   bullets: [
+  //     "Intensive full-time professional training in Java and full-stack development, covering Java, Spring Boot, REST APIs, databases, testing, React, TypeScript, Docker, DevOps, and AI-assisted development.",
+  //     "Capstone Project: Built a full-stack RAG recipe assistant with Java 25, Spring Boot 4, Spring AI, PostgreSQL/pgvector, Spring Security, React, and TypeScript, including JWT/OAuth2 authentication, AI tool calling, persistent conversations, and Docker/GitHub Actions CI/CD.",
+  //   ],
+  // },
   {
     period: "2025",
     range: "03.2025 – 11.2025",
@@ -141,12 +141,10 @@ export const experience = [
     company: "Arbolitics",
     location: "Berlin, Germany · Hybrid",
     bullets: [
-      "Built interactive dashboards and tools for irrigation planning, yield prediction, and farm scoring, powered by weather, soil health, and satellite data.",
-      "Implemented Zustand for persistent data flow and clear state management.",
-      "Integrated Auth.js for secure authentication and session handling.",
-      "Collaborated with backend and data engineers to connect machine-learning-based APIs for productivity and yield scoring.",
-      "Ensured app reliability with Playwright E2E tests and Jest unit/integration tests.",
-      "Contributed to Leaflet-based map visualizations showing field boundaries and performance insights.",
+      "Proposed and drove frontend modernization of the farm analytics platform, introducing Zustand, Server Components/Actions, and a structured component architecture.",
+      "Built dashboards, maps, authentication, forms, REST API integrations, and internationalization using React, TypeScript, and Next.js.",
+      "Established Atomic Design with shadcn/ui and introduced ESLint, Prettier, and frontend coding standards to improve consistency and maintainability.",
+      "Introduced Jest and CI-based testing with coverage thresholds, increasing test coverage from 0% to 80%+.",
     ],
     impact:
       "Delivered a smooth, data-rich user experience that turns complex farm data into clear insights for better agricultural and financial decisions.",
@@ -158,11 +156,12 @@ export const experience = [
     company: "gravity&storm",
     location: "Berlin, Germany",
     bullets: [
-      "Developed passenger information systems for S-Bahn trains across Germany with Vue.js & Nest.js.",
-      "Created a Next.js-based dispatcher web application for coordinating city tour guides.",
-      "Built a collaborative audio application for the web using React.",
-      "Engineered a React-based configurator for a photo-frame company.",
-      "Built a website with a React frontend and Drupal backend for a metrology company.",
+      "Mentored three junior developers/interns, supporting onboarding, technical guidance, task assignment, and code reviews across projects.",
+      "Delivered 8+ client projects across frontend and full-stack development, collaborating with cross-functional teams and adapting to different technologies and requirements.",
+      "Developed and maintained a real-time passenger information system for S-Bahn networks across five major German cities, building disruption management, alternative-route workflows, dashboards, forms, and tables with Vue.js and Pinia.",
+      "Contributed to the migration from Vue 2 to Vue 3, refactoring existing frontend features and updating the associated test suite while maintaining production functionality.",
+      "Developed the React/TypeScript frontend for HandsOnMetrology, a multilingual marketing and product-guidance platform for GOM/ZEISS, supporting 8 languages and responsive experiences for users worldwide.",
+      "Built and maintained product pages, search/filtering, forms, tutorial content, and CMS-driven components, integrating React with Drupal and GraphQL for content delivery.",
     ],
   },
   {
