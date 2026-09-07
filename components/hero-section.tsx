@@ -12,6 +12,7 @@ import {
   useTransform,
   type Variants,
 } from "framer-motion"
+import Image from "next/image"
 import Link from "next/link"
 
 import { profile } from "@/lib/resume-data"
@@ -71,63 +72,83 @@ export function HeroSection() {
         >
           <motion.div
             style={{ x: translateX, y: translateY }}
-            className="flex flex-1 flex-col justify-center gap-6 py-12"
+            className="grid flex-1 items-center gap-12 py-12 md:gap-16 lg:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.7fr)]"
           >
-            <h1 className="font-heading text-5xl leading-[1.17] font-semibold tracking-tight text-foreground sm:text-6xl md:text-7xl">
-              <TypewriterText
-                text="Turn Coffee And Ideas Into Working Products."
-                start={isInView}
-                highlight="Working"
-              />
-            </h1>
+            <div className="flex flex-col justify-center gap-6">
+              <h1 className="font-heading text-5xl leading-[1.17] font-semibold tracking-tight text-foreground sm:text-6xl md:text-5xl lg:text-6xl">
+                <TypewriterText
+                  text={`Software Engineer. Product Builder.`}
+                  start={isInView}
+                  highlight="Engineer."
+                />
+              </h1>
 
-            <motion.p
-              variants={fadeUp}
-              className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
-            >
-              <HoverSplitText>
-                I design and build full-stack web products end-to-end — turning
-                complex requirements into interfaces that are fast, reliable,
-                and genuinely pleasant to use.
-              </HoverSplitText>
-            </motion.p>
+              <motion.p
+                variants={fadeUp}
+                className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+              >
+                <HoverSplitText>
+                  Fullstack Product Engineer crafting software from idea to
+                  production — from frontend experiences and backend systems to
+                  architecture, deployment, and everything in between.
+                </HoverSplitText>
+              </motion.p>
+
+              <motion.div
+                variants={fadeUp}
+                className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted-foreground"
+              >
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="hover:text-foreground"
+                >
+                  <HoverSplitText>{profile.email}</HoverSplitText>
+                </a>
+                <span aria-hidden>·</span>
+                <span>
+                  <HoverSplitText>{profile.location}</HoverSplitText>
+                </span>
+                <span aria-hidden>·</span>
+                <a
+                  href="https://github.com/faisalprady13"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-foreground"
+                >
+                  <HoverSplitText>GitHub</HoverSplitText>
+                </a>
+                <span aria-hidden>·</span>
+                <a
+                  href="https://www.linkedin.com/in/faisalprady/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-foreground"
+                >
+                  <HoverSplitText>LinkedIn</HoverSplitText>
+                </a>
+                <span aria-hidden>·</span>
+                <Link href="/resume" className="hover:text-foreground">
+                  <HoverSplitText className="text-emerald-500 dark:text-emerald-400">
+                    Resume
+                  </HoverSplitText>
+                </Link>
+              </motion.div>
+            </div>
 
             <motion.div
               variants={fadeUp}
-              className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted-foreground"
+              className="relative mx-auto hidden w-full max-w-sm overflow-hidden rounded-[2rem] border border-border/70 bg-muted/40 p-2 shadow-2xl shadow-foreground/5 lg:block"
             >
-              <a
-                href={`mailto:${profile.email}`}
-                className="hover:text-foreground"
-              >
-                <HoverSplitText>{profile.email}</HoverSplitText>
-              </a>
-              <span aria-hidden>·</span>
-              <span>
-                <HoverSplitText>{profile.location}</HoverSplitText>
-              </span>
-              <span aria-hidden>·</span>
-              <a
-                href="https://github.com/faisalprady13"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-foreground"
-              >
-                <HoverSplitText>GitHub</HoverSplitText>
-              </a>
-              <span aria-hidden>·</span>
-              <a
-                href="https://www.linkedin.com/in/faisalprady/"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-foreground"
-              >
-                <HoverSplitText>LinkedIn</HoverSplitText>
-              </a>
-              <span aria-hidden>·</span>
-              <Link href="/resume" className="hover:text-foreground">
-                <HoverSplitText>Resume</HoverSplitText>
-              </Link>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem]">
+                <Image
+                  src="/faisal_photo.webp"
+                  alt="Portrait of Faisal Prady"
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 28rem, 90vw"
+                  className="object-cover object-center"
+                />
+              </div>
             </motion.div>
           </motion.div>
 

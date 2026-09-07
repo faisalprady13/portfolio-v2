@@ -61,6 +61,7 @@ export const technicalSkillCategories: {
       { name: "GraphQL" },
       { name: "OAuth 2.0" },
       { name: "JWT Authentication" },
+      { name: "Headless CMS (Strapi, DatoCMS, Drupal)" },
     ],
   },
   {
@@ -104,7 +105,7 @@ export const technicalSkillCategories: {
     ],
   },
   {
-    category: "Engineering Practices",
+    category: "Engineering Practices & Tools",
     skills: [
       { name: "Software Architecture" },
       { name: "Clean Code" },
@@ -112,6 +113,7 @@ export const technicalSkillCategories: {
       { name: "Agile/Scrum" },
       { name: "Accessibility (WCAG 2.1/2.2 AA)" },
       { name: "Responsive Design" },
+      { name: "Management tools (Confluence, Jira)" },
     ],
   },
 ]
