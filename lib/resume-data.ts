@@ -145,8 +145,7 @@ export const experience = [
     bullets: [
       "Proposed and drove frontend modernization of the farm analytics platform, introducing Zustand, Server Components/Actions, and a structured component architecture.",
       "Built dashboards, maps, authentication, forms, REST API integrations, and internationalization using React, TypeScript, and Next.js.",
-      "Established Atomic Design with shadcn/ui and introduced ESLint, Prettier, and frontend coding standards to improve consistency and maintainability.",
-      "Introduced Jest and CI-based testing with coverage thresholds, increasing test coverage from 0% to 80%+.",
+      "Established Atomic Design with shadcn/ui with ESLint, Prettier, Jest and CI-based testing with coverage thresholds up to 80%+ to improve consistency and maintainability.",
     ],
     impact:
       "Delivered a smooth, data-rich user experience that turns complex farm data into clear insights for better agricultural and financial decisions.",
