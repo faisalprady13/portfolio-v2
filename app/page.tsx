@@ -28,8 +28,8 @@ export default function Page() {
       />
       <SiteHeader />
       <HeroSection />
-      <ProjectsSection />
       <ExperienceSection />
+      <ProjectsSection />
       <SiteFooter />
     </>
   )

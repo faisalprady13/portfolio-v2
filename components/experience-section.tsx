@@ -36,7 +36,7 @@ const row: Variants = {
 
 export function ExperienceSection() {
   const allValues = experience.map((_, index) => index)
-  const [openItems, setOpenItems] = React.useState<number[]>([0, 1, 2])
+  const [openItems, setOpenItems] = React.useState<number[]>([0, 1])
 
   const allExpanded = openItems.length === experience.length
 

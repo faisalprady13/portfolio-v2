@@ -19,8 +19,8 @@ import { cn } from "@/lib/utils"
 import { scrollToHash } from "@/lib/scroll-to-hash"
 
 const links = [
-  { href: "/#projects", label: "Projects" },
   { href: "/#experience", label: "Experience" },
+  { href: "/#projects", label: "Projects" },
   { href: "/resume", label: "Resume" },
 ]
 
